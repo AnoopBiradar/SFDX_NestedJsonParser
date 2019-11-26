@@ -1,0 +1,47 @@
+/**
+*author Chris Ludovice
+*@date  11.26.2019
+*description: utility class responsible for parsing service response to Apex objects.
+@revision(s)
+ */
+public class Jsonparser{
+    
+   	public class JSON2Apex{
+        public List<Data> data;                
+	}  
+        public class Data{
+            public String code;
+            public String requestId;
+            public String campaignName;
+            public String action;
+        //    public Object metadata;
+            public String createdAt;
+            public String updatedAt;
+        }
+
+    public static JSON2Apex parse(String json) {
+            return (JSON2Apex) System.JSON.deserialize(json, JSON2Apex.class);
+        }       
+   	public static void display(){
+        
+        //Invoke web service callout
+        
+        // code block for string manipulation removing metadata object, before parsing the service response
+        //  HttpResponse response = http.send(request); 
+       //   String tempPayload = response.getBody();
+       //   iterate over json payload to check metadata instance -> truncate & store (concatenate) to a string variable for a diff. display 
+                
+        // parse your clean payload here...
+        String finalPayload= '{"data":[{"code":"pctpRqfBmstg","requestId":"a86facd0-84bc-49b0-af85-74e2e69a5caf","campaignName":"1 Million Voucher Percent Test","action":"PURCHASED","metadata":null,"createdAt":"2019-10-07T09:22:16.516Z","updatedAt":"2019-10-07T09:22:16.516Z"},{"code":"pctpRqfBmstg","requestId":"afa14bc4-257d-480b-8054-6cc67fdaa2f2","campaignName":"1 Million Voucher Percent Test","action":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:16.581Z"},"createdAt":"2019-10-07T09:22:16.942Z","updatedAt":"2019-10-07T09:22:16.942Z"},{"code":"pctpRqfBmstg","requestId":"e7b928aa-4101-4594-a350-983581b0197d","campaignName":"1 Million Voucher Percent Test","action":"PURCHASED","metadata":{"v_status":{"revert":true}},"createdAt":"2019-10-07T09:22:17.386Z","updatedAt":"2019-10-07T09:22:17.386Z"},{"code":"pctpRqfBmstg","requestId":"a128af45-7fb1-428b-8f1f-ff3c1aba385f","campaignName":"1 Million Voucher Percent Test","action":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:17.457Z"},"createdAt":"2019-10-07T09:22:17.835Z","updatedAt":"2019-10-07T09:22:17.835Z"},{"code":"pctpRqfBmstg","requestId":"8883c6af-2a71-4bfc-87fc-da75662003ac","campaignName":"1 Million Voucher Percent Test","action":"REDEEMED","metadata":null,"createdAt":"2019-10-07T09:22:18.322Z","updatedAt":"2019-10-07T09:22:18.322Z"}]}';        
+        JSON2Apex  x = parse(finalPayload);
+        List<Data> xx = x.Data;
+        for(Data obj:xx){
+            system.debug('code:'+obj.code);
+            system.debug('requestId:'+obj.requestId);
+            system.debug('campaignName:'+obj.campaignName);
+            system.debug('action:'+obj.action);
+            system.debug('action:'+obj.createdAt);
+            system.debug('action:'+obj.updatedAt);
+        }
+    }    
+}
