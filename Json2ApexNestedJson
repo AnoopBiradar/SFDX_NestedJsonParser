@@ -1,0 +1,50 @@
+/**
+*author Chris Ludovice
+*@date  11.26.2019
+*description: utility class responsible for parsing service response with nested json to apex objects using JSON.deserializeUntyped method.
+@revision(s)
+ */
+public class Json2ApexNestedJson {
+    
+    public static void parse(){
+        
+        // sample payload
+       String finalPayload= '{"data":[{"code":"1","requestId":"a86facd0-84bc-49b0-af85-74e2e69a5caf","campaignName":"1 Million Voucher Percent Test","action":"PURCHASED","metadata":null,"createdAt":"2019-10-07T09:22:16.516Z","updatedAt":"2019-10-07T09:22:16.516Z"},{"code":"2","requestId":"afa14bc4-257d-480b-8054-6cc67fdaa2f2","campaignName":"1 Million Voucher Percent Test","action":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:16.581Z"},"createdAt":"2019-10-07T09:22:16.942Z","updatedAt":"2019-10-07T09:22:16.942Z"},{"code":"3","requestId":"e7b928aa-4101-4594-a350-983581b0197d","campaignName":"1 Million Voucher Percent Test","action":"PURCHASED","metadata":{"v_status":{"revert":true}},"createdAt":"2019-10-07T09:22:17.386Z","updatedAt":"2019-10-07T09:22:17.386Z"},{"code":"4","requestId":"a128af45-7fb1-428b-8f1f-ff3c1aba385f","campaignName":"1 Million Voucher Percent Test","action":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:17.457Z"},"createdAt":"2019-10-07T09:22:17.835Z","updatedAt":"2019-10-07T09:22:17.835Z"},{"code":"5","requestId":"8883c6af-2a71-4bfc-87fc-da75662003ac","campaignName":"1 Million Voucher Percent Test","action":"REDEEMED","metadata":null,"createdAt":"2019-10-07T09:22:18.322Z","updatedAt":"2019-10-07T09:22:18.322Z"}]}';        
+	  
+        // using JSON.deserializeUntyped to deserialize nested json payload        
+        Map<String, Object> mainNode;
+        List<Object> firtInstance;
+        mainNode = (Map<String, Object>)JSON.deserializeUntyped(finalPayload); 
+        if(mainNode!=null){
+        	firtInstance = (List< Object>)mainNode.get('data'); 
+        }
+        else mainNode = new Map<String, Object>();
+        
+        for(integer x=0;x<firtInstance.size();x++){
+            
+            Map<String, Object> d1 =  (Map<String, Object>)firtInstance[x];           
+            
+            // print main node of json - > data
+            system.debug('code'+x+': '+d1.get('code'));
+            system.debug('requestId'+x+': '+d1.get('requestId'));
+            system.debug('action'+x+': '+d1.get('action'));
+            system.debug('createdAt'+x+': '+d1.get('createdAt'));
+            system.debug('updatedAt'+x+': '+d1.get('updatedAt')); 
+            
+            // print second node of json - > metadata
+            Map<String, Object> d2 = (Map<String, Object>)d1.get('metadata');            
+            if(d2!=null){
+                system.debug('name:'+d2.get('name'));
+                system.debug('date:'+d2.get('date'));
+                
+                // print 3rd node of json - > v_status
+                if(d2.get('v_status')!=null){
+                    Map<String, Object> d3 =  (Map<String, Object>)d2.get('v_status'); 
+            		if(d3!=null)
+                	system.debug('revert:'+d3.get('revert'));
+                }
+            }
+          }           
+
+    }
+}
