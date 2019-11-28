@@ -60,7 +60,7 @@ public class Jsonparser{
         else xx = new List<Data>();
         for(Data obj:xx){
             
-            // print main node of json - > data
+            // print first level of json - > data
             
             if(obj!=null){
                 if(obj.code!=null)
@@ -84,7 +84,8 @@ public class Jsonparser{
                 
                 if(obj.metadata!=null){
                 
-                    // print 2nd node of json - > metadata
+                    // print 2nd level of json - > metadata
+		    
                     if(obj.metadata.name!=null)
                     system.debug('name:'+obj.metadata.name);
                     else system.debug('name: null');
@@ -92,7 +93,8 @@ public class Jsonparser{
                     system.debug('date:'+obj.metadata.date_x);
                     else system.debug('date: null');
                 }
-                // print 3nd node of json - > v_status
+		
+                // print 3nd level of json - > v_status
                  
                 if(obj.metadata.v_status!=null){
                     if(obj.metadata.v_status.revert!=null)
