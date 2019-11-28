@@ -23,20 +23,20 @@ public class Json2ApexNestedJson {
             
             Map<String, Object> d1 =  (Map<String, Object>)firtInstance[x];           
             
-            // print main node of json - > data
+            // print first level of json - > data
             system.debug('code'+x+': '+d1.get('code'));
             system.debug('requestId'+x+': '+d1.get('requestId'));
             system.debug('action'+x+': '+d1.get('action'));
             system.debug('createdAt'+x+': '+d1.get('createdAt'));
             system.debug('updatedAt'+x+': '+d1.get('updatedAt')); 
             
-            // print second node of json - > metadata
+            // print second level of json - > metadata
             Map<String, Object> d2 = (Map<String, Object>)d1.get('metadata');            
             if(d2!=null){
                 system.debug('name:'+d2.get('name'));
                 system.debug('date:'+d2.get('date'));
                 
-                // print 3rd node of json - > v_status
+                // print 3rd level of json - > v_status
                 if(d2.get('v_status')!=null){
                     Map<String, Object> d3 =  (Map<String, Object>)d2.get('v_status'); 
             		if(d3!=null)
