@@ -15,9 +15,8 @@ public class Json2ApexNestedJson {
         Map<String, Object> mainNode;
         List<Object> firtInstance;
         mainNode = (Map<String, Object>)JSON.deserializeUntyped(finalPayload); 
-        if(mainNode!=null){
+        if(mainNode!=null)
         	firtInstance = (List< Object>)mainNode.get('data'); 
-        }
         else mainNode = new Map<String, Object>();
         
         for(integer x=0;x<firtInstance.size();x++){
