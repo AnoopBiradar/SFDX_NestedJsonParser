@@ -50,7 +50,7 @@ public class Jsonparser{
         }       
    	public static void display(){
         
-        // parse payload        
+       // sample payload -> https://github.com/chrisludovice/SalesforceDXShare/blob/brainstorm/NestedJsonPayload        
        String payload= '{"data":[{"code":"1","requestId":"a1","campaignName":"cmp Test1","action":"PURCHASED","metadata":null,"createdAt":"2019-10-07T09:22:16.516Z","updatedAt":"2019-10-07T09:22:16.516Z"},{"code":"2","requestId":"a2","campaignName":"cmp Test2","action":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:16.581Z"},"createdAt":"2019-10-07T09:22:16.942Z","updatedAt":"2019-10-07T09:22:16.942Z"},{"code":"3","requestId":"1d","campaignName":"cmp Test3","action":"PURCHASED","metadata":{"v_status":{"revert":true}},"createdAt":"2019-10-07T09:22:17.386Z","updatedAt":"2019-10-07T09:22:17.386Z"},{"code":"4","requestId":"a128af45-7fb1-428b-8f1f-ff3c1aba385f","campaignName":"cmp Te4st","action":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:17.457Z"},"createdAt":"2019-10-07T09:22:17.835Z","updatedAt":"2019-10-07T09:22:17.835Z"},{"code":"5","requestId":"2ac","campaignName":"1 Million Voucher Percent Test","action":"REDEEMED","metadata":null,"createdAt":"2019-10-07T09:22:18.322Z","updatedAt":"2019-10-07T09:22:18.322Z"}]}';        
        payload=payload.replace('"date":', '"date_x":'); // replace reserved word
 
