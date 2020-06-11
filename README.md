@@ -7,5 +7,5 @@
 *******************************************************************************************************
 
 These utility classes enable you to parse a nested JSON-formatted response that's returned from a call to an external service, such as a web service callout using two approaches:
-  - using Json Methods only </br>
+  - using Json Method only </br>
   - and a Wrapper Class
