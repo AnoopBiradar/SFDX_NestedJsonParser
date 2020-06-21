@@ -1,19 +1,19 @@
 {
   "data": [
     {
-      "code": "1",
-      "requestId": "a1",
-      "campaignName": "cmp Test1",
-      "action": "PURCHASED",
+      "keyId": "1",
+      "referralCode": "a1",
+      "testName": "cmp Test1",
+      "push": "PURCHASED",
       "metadata": null,
       "createdAt": "2019-10-07T09:22:16.516Z",
       "updatedAt": "2019-10-07T09:22:16.516Z"
     },
     {
-      "code": "2",
-      "requestId": "a2",
-      "campaignName": "cmp Test2",
-      "action": "PROCESSING",
+      "keyId": "2",
+      "referralCode": "a2",
+      "testName": "cmp Test2",
+      "push": "PROCESSING",
       "metadata": {
         "name": "Automation, for redemption",
         "date": "2019-10-07T09:22:16.581Z"
@@ -22,10 +22,10 @@
       "updatedAt": "2019-10-07T09:22:16.942Z"
     },
     {
-      "code": "3",
-      "requestId": "1d",
-      "campaignName": "cmp Test3",
-      "action": "PURCHASED",
+      "keyId": "3",
+      "referralCode": "1d",
+      "testName": "cmp Test3",
+      "push": "PURCHASED",
       "metadata": {
         "v_status": {
           "revert": true
@@ -35,10 +35,10 @@
       "updatedAt": "2019-10-07T09:22:17.386Z"
     },
     {
-      "code": "4",
-      "requestId": "a128af45-7fb1-428b-8f1f-ff3c1aba385f",
-      "campaignName": "cmp Te4st",
-      "action": "PROCESSING",
+      "keyId": "4",
+      "referralCode": "a128af45-7fb1-428b-8f1f-ff3c1aba385f",
+      "testName": "cmp Te4st",
+      "push": "PROCESSING",
       "metadata": {
         "name": "Automation, for redemption",
         "date": "2019-10-07T09:22:17.457Z"
@@ -47,10 +47,10 @@
       "updatedAt": "2019-10-07T09:22:17.835Z"
     },
     {
-      "code": "5",
-      "requestId": "2ac",
-      "campaignName": "1 Million Voucher Percent Test",
-      "action": "REDEEMED",
+      "keyId": "5",
+      "referralCode": "2ac",
+      "testName": "1 Million Voucher Percent Test",
+      "push": "REDEEMED",
       "metadata": null,
       "createdAt": "2019-10-07T09:22:18.322Z",
       "updatedAt": "2019-10-07T09:22:18.322Z"
