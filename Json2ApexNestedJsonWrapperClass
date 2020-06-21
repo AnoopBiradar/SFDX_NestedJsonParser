@@ -37,10 +37,10 @@ public class Jsonparser{
         	return metadata;
     		} set;}
             
-            public String code {get; set;}
-            public String requestId {get; set;}
-            public String campaignName {get; set;}
-            public String action {get; set;}           
+            public String keyId {get; set;}
+            public String referralCode {get; set;}
+            public String testName {get; set;}
+            public String push {get; set;}           
             public String createdAt {get; set;}
             public String updatedAt {get; set;}
         }
@@ -51,7 +51,7 @@ public class Jsonparser{
    	public static void display(){
         
        // sample payload -> https://github.com/chrisludovice/SalesforceDXShare/blob/brainstorm/NestedJsonPayload        
-       String payload= '{"data":[{"code":"1","requestId":"a1","campaignName":"cmp Test1","action":"PURCHASED","metadata":null,"createdAt":"2019-10-07T09:22:16.516Z","updatedAt":"2019-10-07T09:22:16.516Z"},{"code":"2","requestId":"a2","campaignName":"cmp Test2","action":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:16.581Z"},"createdAt":"2019-10-07T09:22:16.942Z","updatedAt":"2019-10-07T09:22:16.942Z"},{"code":"3","requestId":"1d","campaignName":"cmp Test3","action":"PURCHASED","metadata":{"v_status":{"revert":true}},"createdAt":"2019-10-07T09:22:17.386Z","updatedAt":"2019-10-07T09:22:17.386Z"},{"code":"4","requestId":"a128af45-7fb1-428b-8f1f-ff3c1aba385f","campaignName":"cmp Te4st","action":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:17.457Z"},"createdAt":"2019-10-07T09:22:17.835Z","updatedAt":"2019-10-07T09:22:17.835Z"},{"code":"5","requestId":"2ac","campaignName":"1 Million Voucher Percent Test","action":"REDEEMED","metadata":null,"createdAt":"2019-10-07T09:22:18.322Z","updatedAt":"2019-10-07T09:22:18.322Z"}]}';        
+       String payload= '{"data":[{"keyId":"1","referralCode":"a1","testName":"cmp Test1","push":"PURCHASED","metadata":null,"createdAt":"2019-10-07T09:22:16.516Z","updatedAt":"2019-10-07T09:22:16.516Z"},{"keyId":"2","referralCode":"a2","testName":"cmp Test2","push":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:16.581Z"},"createdAt":"2019-10-07T09:22:16.942Z","updatedAt":"2019-10-07T09:22:16.942Z"},{"keyId":"3","referralCode":"1d","testName":"cmp Test3","push":"PURCHASED","metadata":{"v_status":{"revert":true}},"createdAt":"2019-10-07T09:22:17.386Z","updatedAt":"2019-10-07T09:22:17.386Z"},{"keyId":"4","referralCode":"a128af45-7fb1-428b-8f1f-ff3c1aba385f","testName":"cmp Te4st","push":"PROCESSING","metadata":{"name":"Automation, for redemption","date":"2019-10-07T09:22:17.457Z"},"createdAt":"2019-10-07T09:22:17.835Z","updatedAt":"2019-10-07T09:22:17.835Z"},{"keyId":"5","referralCode":"2ac","testName":"1 Million Voucher Percent Test","push":"REDEEMED","metadata":null,"createdAt":"2019-10-07T09:22:18.322Z","updatedAt":"2019-10-07T09:22:18.322Z"}]}';        
        payload=payload.replace('"date":', '"date_x":'); // replace reserved word
 
         JSON2Apex  x = parse(payload);
@@ -63,24 +63,24 @@ public class Jsonparser{
             // print first level of json - > data
             
             if(obj!=null){
-                if(obj.code!=null)
-                system.debug('code:'+obj.code);
-                else system.debug('code: null');
-                if(obj.requestId!=null) 
-                system.debug('requestId:'+obj.requestId);
-                else system.debug('requestId: null');
+                if(obj.keyId!=null)
+                system.debug('keyId:'+obj.keyId);
+                else system.debug('keyId: null');
+                if(obj.referralCode!=null) 
+                system.debug('referralCode:'+obj.referralCode);
+                else system.debug('referralCode: null');
                 if(obj.campaignName!=null)
                 system.debug('campaignName:'+obj.campaignName);
                 else system.debug('campaignName: null');
-                if(obj.action!=null)
-                system.debug('action:'+obj.action);
-                else system.debug('action: null');
+                if(obj.push!=null)
+                system.debug('push:'+obj.push);
+                else system.debug('push: null');
                 if(obj.createdAt!=null)
-                system.debug('action:'+obj.createdAt);
-                else system.debug('action: null');
+                system.debug('push:'+obj.createdAt);
+                else system.debug('push: null');
                 if(obj.updatedAt!=null)
-                system.debug('action:'+obj.updatedAt); 
-                else system.debug('action: null');
+                system.debug('push:'+obj.updatedAt); 
+                else system.debug('push: null');
                 
                 if(obj.metadata!=null){
                 
